@@ -12,7 +12,7 @@ ul, ol {
 /* #endregion RESET */
 
 /* #region DEBUG */
-body{
+/* body{
     background-color: greenyellow;
 }
 
@@ -22,7 +22,7 @@ body{
 
 .row > *, .flex > *{
     border: 1px dashed blue;
-}
+} */
 /* #endregion DEBUG */
 
 /* #region FLEX */
@@ -42,10 +42,17 @@ body{
 /* #region GENERAL */
 :root{
     --footer-h: 90px;
+    --aside-line-h:1.7rem;
+    --aside-check-border: 5px;
 }
 
 body{
     font-family: "Montserrat", sans-serif;
+    color: white
+}
+
+[type="radio"]{
+    display: none;
 }
 /* #endregion GENERAL */
 
@@ -54,16 +61,68 @@ body{
     height: calc(100vh - var(--footer-h));
 }
 
+/* aside */
 aside{
     width: 200px;
     height: 100%;
-    background-color: green;
+    background-color: #000000;
+    flex-direction: column;
+    font-size: 0.9rem;
+    color: #A3A3A3; 
+}
+
+aside [alt="logo"]{
+    width: 80%;
+    padding: 1rem;
+}
+
+aside [alt="logo small"]{
+    width: 100%;
+    padding: 1rem;
+    display: none
+}
+
+aside label{
+    padding: 0.8rem;
+    line-height: var(--aside-line-h);
+    cursor: pointer;
+    font-weight: 500;
+    & img{
+        filter: invert(81%) sepia(4%) saturate(0%) hue-rotate(179deg) brightness(100%) contrast(0%);
+    }
+}
+
+aside li{
+    padding: 0.8rem 0;
+}
+
+[type="radio"] ~ label:hover {
+    color: white;
+    & img{
+        filter: none;
+    }
+}
+
+[type="radio"]:checked ~ label{
+    border-left: var(--aside-check-border) solid greenyellow;
+    padding-left: calc(0.8rem - var(--aside-check-border));
+    color: white;
+    & img{
+        filter: none;
+    }
+}
+
+aside label img{
+    height: var(--aside-line-h);
+    vertical-align: bottom;
 }
 
 main{
     height: 100%;
     background-color: blueviolet;
 }
+
+
 /* #endregion MAIN PART */
 
 /* #region FOOTER */
