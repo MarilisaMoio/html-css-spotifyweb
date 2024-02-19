@@ -44,11 +44,16 @@ ul, ol {
     --footer-h: 90px;
     --aside-line-h:1.7rem;
     --aside-check-border: 5px;
+    --padding-aside: 1.5rem
 }
 
 body{
     font-family: "Montserrat", sans-serif;
     color: white
+}
+
+i{
+    color: inherit
 }
 
 [type="radio"]{
@@ -63,38 +68,74 @@ body{
 
 /* aside */
 aside{
-    width: 200px;
+    width: 220px;
     height: 100%;
     background-color: #000000;
     flex-direction: column;
-    font-size: 0.9rem;
+    padding: var(--padding-aside);
+    padding-top: 0.5rem;
     color: #A3A3A3; 
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
 aside [alt="logo"]{
-    width: 80%;
-    padding: 1rem;
+    width: 85%;
+    padding-bottom: 1.5rem
 }
 
 aside [alt="logo small"]{
     width: 100%;
     padding: 1rem;
-    display: none
+    display: none;
 }
 
 aside label{
+    margin-left: calc(-1 * var(--padding-aside));
     padding: 0.8rem;
+    padding-left: var(--padding-aside);
     line-height: var(--aside-line-h);
     cursor: pointer;
-    font-weight: 500;
     & img{
         filter: invert(81%) sepia(4%) saturate(0%) hue-rotate(179deg) brightness(100%) contrast(0%);
+        height: var(--aside-line-h);
+        vertical-align: bottom;
     }
 }
 
 aside li{
-    padding: 0.8rem 0;
+    margin: 0.8rem 0;
 }
+
+aside h4{
+    font-size: large;
+    text-transform: uppercase;
+    color: white;
+    margin-top: 1rem;
+    margin-bottom: 0.6rem
+}
+
+.plus span{
+    display: inline-block;
+    line-height: 2.6rem;
+    vertical-align: top;
+    font-size: 1rem;
+    margin-left: 0.3rem;
+}
+
+.actual-playlist{
+    overflow-y: auto;
+}
+
+.actual-playlist::-webkit-scrollbar{
+    width: 0.5rem;
+}
+
+.actual-playlist::-webkit-scrollbar-thumb {
+    background: #A3A3A3;
+}
+
+/*effects*/
 
 [type="radio"] ~ label:hover {
     color: white;
@@ -103,19 +144,21 @@ aside li{
     }
 }
 
+.actual-playlist li:hover, .new-playlist:hover{
+    color: white;
+    cursor: pointer;
+}
+
 [type="radio"]:checked ~ label{
     border-left: var(--aside-check-border) solid greenyellow;
-    padding-left: calc(0.8rem - var(--aside-check-border));
+    padding-left: calc(var(--padding-aside) - var(--aside-check-border));
     color: white;
     & img{
         filter: none;
     }
 }
 
-aside label img{
-    height: var(--aside-line-h);
-    vertical-align: bottom;
-}
+/* main */
 
 main{
     height: 100%;
@@ -131,5 +174,21 @@ footer{
     background-color: aqua;
 }
 /* #endregion FOOTER */
+
+/* #region RESPONSIVE */
+@media screen and (max-width: 1100px) {
+    
+}
+
+@media screen and (max-width: 700px) {
+    
+}
+
+@media screen and (max-width: 600px) {
+    
+}
+
+
+/* #endregion RESPONSIVE */
 
 
