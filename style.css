@@ -1,5 +1,3 @@
-@import url(flex.css);
-
 /* #region RESET */
 * {
     border: 0px;
@@ -57,14 +55,14 @@ body{
 }
 
 aside{
-    width: 180px;
-    background-color: green;
+    width: 200px;
     height: 100%;
+    background-color: green;
 }
 
 main{
-    background-color: blueviolet;
     height: 100%;
+    background-color: blueviolet;
 }
 /* #endregion MAIN PART */
 
