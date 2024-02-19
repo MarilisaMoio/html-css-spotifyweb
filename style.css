@@ -1,3 +1,5 @@
+@import url(flex.css);
+
 /* #region RESET */
 * {
     border: 0px;
@@ -10,3 +12,67 @@ ul, ol {
     list-style: none;
 }
 /* #endregion RESET */
+
+/* #region DEBUG */
+body{
+    background-color: greenyellow;
+}
+
+.row, .flex{
+    border: 1px dashed red;
+}
+
+.row > *, .flex > *{
+    border: 1px dashed blue;
+}
+/* #endregion DEBUG */
+
+/* #region FLEX */
+.flex{
+    display: flex;
+}
+
+.grow{
+    flex-grow: 1;
+}
+
+.wrap{
+    flex-wrap: wrap;
+}
+/* #endregion FLEX */
+
+/* #region GENERAL */
+:root{
+    --footer-h: 90px;
+}
+
+body{
+    font-family: "Montserrat", sans-serif;
+}
+/* #endregion GENERAL */
+
+/* #region MAIN */
+.container{
+    height: calc(100vh - var(--footer-h));
+}
+
+aside{
+    width: 180px;
+    background-color: green;
+    height: 100%;
+}
+
+main{
+    background-color: blueviolet;
+    height: 100%;
+}
+/* #endregion MAIN PART */
+
+/* #region FOOTER */
+footer{
+    height: var(--footer-h);
+    background-color: aqua;
+}
+/* #endregion FOOTER */
+
+
