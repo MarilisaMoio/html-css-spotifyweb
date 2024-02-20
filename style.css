@@ -56,6 +56,7 @@ button{
     --aside-line-h:1.7rem;
     --aside-check-border: 6px;
     --padding-aside: 1.6rem;
+    --gap: 1rem;
 }
 
 body{
@@ -282,11 +283,40 @@ main{
 }
 
 .barret{
-    width: 50%;
+    width: 40%;
     height: 4px;
     background-color: greenyellow;
     margin: 5px auto;
     display: none
+}
+
+/*albums*/
+.music{
+    padding: 1rem 2rem;
+    & > h2{
+        margin-bottom: 1.5rem
+    }
+}
+
+.row:has(.AlbumCard){
+    gap: var(--gap);
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.AlbumCard{
+    width: calc(100% / 6 - (var(--gap)) * 5 / 6);
+    text-align: center;
+    & .AlbumCard-img{
+        width: 100%;
+    }
+    & .AlbumCard-sub{
+        color: #A3A3A3;
+        font-size: 0.9rem;
+    }
+    & > * + *{
+        padding-top: 0.3rem;
+    }
 }
 
 /*effects*/
