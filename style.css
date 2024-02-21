@@ -54,7 +54,6 @@ button{
 :root{
     --footer-h: 90px;
     --aside-line-h:1.7rem;
-    --aside-check-border: 6px;
     --padding-aside: 1.6rem;
     --gap: 1rem;
 }
@@ -108,9 +107,6 @@ aside [alt="logo small"]{
 
 /*primary nav*/
 aside label{
-    margin-left: calc(-1 * var(--padding-aside));
-    padding: 0.8rem;
-    padding-left: var(--padding-aside);
     line-height: var(--aside-line-h);
     cursor: pointer;
     & img{
@@ -121,7 +117,19 @@ aside label{
 }
 
 aside li{
-    margin: 0.8rem 0;
+    margin: 0 calc(-1 * var(--padding-aside));
+    padding: 0.5rem;
+    position: relative;
+}
+
+aside li .v-barret{
+    width: 0;
+    height: 100%;
+    background-color: greenyellow;
+    position: absolute;
+    transition: 0.4s;
+    left: 0;
+    top: 0;
 }
 
 /*playlist*/
@@ -212,11 +220,9 @@ hr{
     }
 }
 
-aside [type="radio"]:checked ~ label{
-    border-left: var(--aside-check-border) solid greenyellow;
-    padding-left: calc(var(--padding-aside) - var(--aside-check-border));
-    color: white;
-    & img{
+aside [type="radio"]:checked ~ .v-barret{
+    width: 6px;
+    & ~ label img{
         filter: none;
     }
 }
@@ -253,10 +259,10 @@ main{
         text-transform: uppercase;
         border: 1px solid white;
         border-radius: 50px;
+        transition: 0.2s;
     }
     & button:hover{
         font-size: 1rem;
-        box-shadow: 0 0 5px 1px white;
     }
 }
 
@@ -281,12 +287,12 @@ main{
     margin: 0.5rem;
 }
 
-.barret{
+.o-barret{
     width: 0px;
     height: 4px;
     background-color: greenyellow;
     margin: 5px auto;
-    transition: 0.1s linear;
+    transition: 0.2s ease-out;
 }
 
 /*albums*/
@@ -346,8 +352,11 @@ main{
 }
 
 /*effects*/
-main [type="radio"]:checked ~ label .barret{
+main [type="radio"]:checked ~ label{
+    color: white;
+    & .o-barret{
     width: 40%;
+    }
 }
 
 .AlbumCard-imgContainer:hover{
@@ -407,13 +416,12 @@ footer .row{
 }
 
 .player .commands{
-    width: clamp(150px, 50%, 200px);
-    justify-content: space-between;
     & button{
-        font-size: 1.3rem;
+        font-size: clamp(0.7rem, 3vw, 1.3rem);
+        margin: 0 0.3em;
         &:has(.fa-circle-play){
-            font-size: 2rem;
-            margin: 0 0.5rem;
+            font-size: clamp(1.3rem, 4vw, 2rem);
+            margin: 0 0.5em;
         }
     }
 }
@@ -422,10 +430,11 @@ footer .row{
     align-items: center;
     width: 100%;
     justify-content: space-between;
+    padding: 0 1rem;
 }
 
 .progress-bar, .actual-bar, .volume-bar, .actual-volume{
-    height: 4px;
+    height: 5px;
     border-radius: 50px;
 }
 
@@ -445,7 +454,7 @@ footer .row{
     position: absolute;
     height: 12px;
     right: -6px;
-    bottom: -4px
+    bottom: -3.5px
 }
 
 .progress-bar{
@@ -539,6 +548,11 @@ footer .row{
     }
 
     /*albums same as 700px*/
+    
+    /*footer*/
+    footer .save{
+        flex-direction: column;
+    }
 }
 
 /* #endregion RESPONSIVE */
