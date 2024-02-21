@@ -79,6 +79,7 @@ li, li > *{
 [type="radio"]{
     display: none;
 }
+
 /* #endregion GENERAL */
 
 /* #region ASIDE */
@@ -363,42 +364,140 @@ main [type="radio"]:checked ~ label .barret{
 footer{
     height: var(--footer-h);
     background-color: #282828;
-    padding: 0 var(--padding-aside);
+    padding: 0 0.75rem;
 }
 
 footer .row{
     height: 100%;
     align-items: center;
+    justify-content: space-between;
 }
 
-.song{
+.song, .player, .misc{
     align-items: center;
     height: 100%;
 }
 
 .song img{
-    height: 65%;
-    margin-right: 1rem;
+    height: 55%;
+    margin-right: 0.5rem;
 }
 
 .song small{
     color: #A3A3A3;
 }
 
+.song button{
+    font-size: 1rem;
+}
+
 .song .save{
-    margin-left: clamp(1rem, 3vw, 3rem);
+    margin-left: clamp(0.2rem, 2vw, 3rem);
     & i{
-        font-size: 1rem;
         margin: 0 0.5rem;
         color: #A3A3A3;
         transition: 0.1s;
     }
 }
 
+.player{
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+
+.player .commands{
+    width: clamp(150px, 50%, 200px);
+    justify-content: space-between;
+    & button{
+        font-size: 1.3rem;
+        &:has(.fa-circle-play){
+            font-size: 2rem;
+            margin: 0 0.5rem;
+        }
+    }
+}
+
+.progress{
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.progress-bar, .actual-bar, .volume-bar, .actual-volume{
+    height: 4px;
+    border-radius: 50px;
+}
+
+.progress-bar, .volume-bar{
+    background-color: gray;
+}
+
+.actual-bar, .actual-volume{
+    background-color: white;
+    position: relative;
+}
+
+.bar-thumb, .volume-thumb{
+    background-color: transparent;
+    aspect-ratio: 1 / 1;
+    border-radius: 50px;
+    position: absolute;
+    height: 12px;
+    right: -6px;
+    bottom: -4px
+}
+
+.progress-bar{
+    width: 95%;
+    margin: 0 0.5rem;
+}
+
+.actual-bar{
+    width: calc(100 / 4.35 * 1.37 * 1%);
+}
+
+.misc > * + *{
+    margin-left: 0.7rem;
+}
+
+.volume-bar{
+    width: 70px;
+}
+
+.actual-volume{
+    width: 70%;
+}
+
 /*effects*/
 .song button:hover i{
     color: white;
-    font-size: 1.2rem;
+}
+
+.progress-bar:hover{
+    & .actual-bar{
+        background-color: greenyellow;
+    }
+    & .bar-thumb{
+        background-color: white;
+        &:hover{
+            box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.562);
+            cursor: grab;
+        }
+    }
+}
+
+.volume-bar:hover{
+    & .actual-volume{
+        background-color: greenyellow;
+    }
+    & .volume-thumb{
+        background-color: white;
+        &:hover{
+            box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.562);
+            cursor: grab;
+        }
+    }
 }
 /* #endregion FOOTER */
 
@@ -443,5 +542,3 @@ footer .row{
 }
 
 /* #endregion RESPONSIVE */
-
-
